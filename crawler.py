@@ -9,12 +9,12 @@ data['spatialref'] = []
 pages = 1
 
 while onloop :
-    print("crawler na pagiana numero = {}\b".format(pages))
+    print("crawler in page number = {}\b".format(pages))
     print("---------------------------------------------------------\b")
     content = urllib.request.urlopen("https://spatialreference.org/ref/epsg/?page={}".format(pages)).read()
     soup = BeautifulSoup(content)
 
-    print("Request da pagina foi okk \b")
+    print("Page request successful \b")
     print("---------------------------------------------------------\b")
 
     alllis = soup.find_all('li')
@@ -29,7 +29,7 @@ while onloop :
         })
 
     print("---------------------------------------------------------\b")
-    print("counter retornou um valor maior que 1 = {}\b".format(counter))
+    print("counter of li tags retuned a value of = {}\b".format(counter))
 
     if counter == 0 :
         onloop = False
@@ -39,7 +39,7 @@ while onloop :
     pages = pages + 1
 
 print("---------------------------------------------------------\b")
-print("Loop terminou, valores serão esquitos em .json\b")
+print("Loop finished, the values will be written on the .json file\b")
 
 with open('spatialref.json', 'w') as outfile:
     json.dump(data, outfile)
