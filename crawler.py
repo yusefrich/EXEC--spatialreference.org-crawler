@@ -25,7 +25,8 @@ while onloop :
         print(li.text)
         print("\b")
         data['spatialref'].append({
-            li.a.string: li.text,
+            "full": li.text,
+            "number": li.a.string,
         })
 
     print("---------------------------------------------------------\b")
